@@ -26,6 +26,6 @@ const User = seq.define("zd_user", {
 });
 
 // 强制同步数据库(创建数据表)
-User.sync({ force: true });
+// User.sync({ force: true });
 
 module.exports = User;
