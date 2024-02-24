@@ -1,22 +1,22 @@
 # 一.项目初始化
 
-## 1.npm初始化
+## 1.npm 初始化
 
 ```
 npm init -y
 ```
 
-## 2.git初始化
+## 2.git 初始化
 
 ```
 git init
 ```
 
-## 3.创建ReadMe文件
+## 3.创建 ReadMe 文件
 
 # 二.搭建项目
 
-## 1.安装koa
+## 1.安装 koa
 
 ```
 npm install koa
@@ -126,8 +126,6 @@ npm i koa-router
 3. 编写路由
 
 4. 注册中间件
-
-   
 
 ## 2 编写路由
 
@@ -305,9 +303,9 @@ ORM: 对象关系映射
 
 ## 1 安装 sequelize
 
-````
+```
 npm i mysql2 sequelize
-````
+```
 
 ## 2 连接数据库
 
@@ -460,7 +458,7 @@ module.exports = new UserController()
 在控制器中, 对不同的错误进行处理, 返回不同的提示错误提示, 提高代码质量
 
 ```
-const { createUser, getUerInfo } = require('../service/user.service')
+const { createUser, getUserInfo } = require('../service/user.service')
 
 class UserController {
   async register(ctx, next) {
@@ -480,7 +478,7 @@ class UserController {
       return
     }
     // 合理性
-    if (getUerInfo({ user_name })) {
+    if (getUserInfo({ user_name })) {
       ctx.status = 409
       ctx.body = {
         code: '10002',
@@ -526,7 +524,7 @@ class UserService {
     return res.dataValues
   }
 
-  async getUerInfo({ id, user_name, password, is_admin }) {
+  async getUserInfo({ id, user_name, password, is_admin }) {
     const whereOpt = {}
 
     id && Object.assign(whereOpt, { id })
@@ -547,4 +545,3 @@ module.exports = new UserService()
 ```
 
 # 笔记
-

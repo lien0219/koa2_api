@@ -4,17 +4,16 @@ const seq = require("../db/seq");
 
 // Model zd_user -> 表 zd_users
 const User = seq.define("zd_user", {
-  //  id 会被sequelize自动创建, 管理
+  // id 会被sequelize自动创建, 管理
   user_name: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-    comment: "用户名，唯一",
+    comment: "用户名, 唯一",
   },
   password: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.CHAR(64),
     allowNull: false,
-    defaultValue: 0,
     comment: "密码",
   },
   is_admin: {
@@ -26,6 +25,6 @@ const User = seq.define("zd_user", {
 });
 
 // 强制同步数据库(创建数据表)
-// User.sync({ force: true });
+User.sync({ force: true });
 
 module.exports = User;
