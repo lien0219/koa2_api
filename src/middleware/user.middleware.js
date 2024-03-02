@@ -73,7 +73,7 @@ const verifyLogin = async (ctx, next) => {
       return;
     }
   } catch (error) {
-    console.error(err);
+    console.error(error);
     return ctx.app.emit("error", userLoginError, ctx);
   }
   await next();

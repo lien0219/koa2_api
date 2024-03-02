@@ -545,3 +545,107 @@ module.exports = new UserService()
 ```
 
 # 笔记
+
+# 用户的认证
+
+登录成功后, 给用户颁发一个令牌 token, 用户在以后的每一次请求中携带这个令牌.
+
+jwt: jsonwebtoken
+
+- header: 头部
+
+- payload: 载荷
+
+- signature: 签名
+
+  
+
+## 1 颁发 token
+
+### 1) 安装 jsonwebtoken
+
+```
+npm i jsonwebtoken
+```
+
+### 2) 在控制器中改写 login 方法
+
+```
+async login(ctx, next) {
+  const { user_name } = ctx.request.body
+
+  // 1. 获取用户信息(在token的payload中, 记录id, user_name, is_admin)
+  try {
+    // 从返回结果对象中剔除password属性, 将剩下的属性放到res对象
+    const { password, ...res } = await getUerInfo({ user_name })
+
+    ctx.body = {
+      code: 0,
+      message: '用户登录成功',
+      result: {
+        token: jwt.sign(res, JWT_SECRET, { expiresIn: '1d' }),
+      },
+    }
+  } catch (err) {
+    console.error('用户登录失败', err)
+  }
+}
+```
+
+### 3) 定义私钥
+
+在`.env`定义
+
+```
+JWT_SECRET = xzd
+```
+
+## 2 用户认证
+
+### 1) 创建 auth 中间件
+
+```
+const jwt = require('jsonwebtoken')
+
+const { JWT_SECRET } = require('../config/config.default')
+
+const { tokenExpiredError, invalidToken } = require('../constant/err.type')
+
+const auth = async (ctx, next) => {
+  const { authorization } = ctx.request.header
+  const token = authorization.replace('Bearer ', '')
+  console.log(token)
+
+  try {
+    // user中包含了payload的信息(id, user_name, is_admin)
+    const user = jwt.verify(token, JWT_SECRET)
+    ctx.state.user = user
+  } catch (err) {
+    switch (err.name) {
+      case 'TokenExpiredError':
+        console.error('token已过期', err)
+        return ctx.app.emit('error', tokenExpiredError, ctx)
+      case 'JsonWebTokenError':
+        console.error('无效的token', err)
+        return ctx.app.emit('error', invalidToken, ctx)
+    }
+  }
+
+  await next()
+}
+
+module.exports = {
+  auth,
+}
+```
+
+### 2) 改写 router
+
+```
+// 修改密码接口
+router.patch('/', auth, (ctx, next) => {
+  console.log(ctx.state.user)
+  ctx.body = '修改密码成功'
+})
+```
+
