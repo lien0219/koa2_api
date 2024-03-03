@@ -649,3 +649,15 @@ router.patch('/', auth, (ctx, next) => {
 })
 ```
 
+
+
+# 接口地址：
+
+ http://localhost:8000
+
+用户注册：/users/register    请求方式：post    参数："user_name":"" , "password":""
+
+用户登录：/users/login        请求方式：post    参数："user_name":"" , "password":""
+
+修改密码：/users/               请求方式：patch    参数：password":""
+
