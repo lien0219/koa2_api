@@ -49,4 +49,39 @@ module.exports = {
     message: "商品图片上传失败",
     result: "",
   },
+  unSupportedFileType: {
+    code: "10202",
+    message: "不支持的文件格式",
+    result: "",
+  },
+  goodsFormatError: {
+    code: "10203",
+    message: "商品参数格式错误",
+    result: "",
+  },
+  publishGoodsError: {
+    code: "10204",
+    message: "发布商品失败",
+    result: "",
+  },
+  invalidGoodsID: {
+    code: "10205",
+    message: "无效的商品id",
+    result: "",
+  },
+  cartFormatError: {
+    code: "10301",
+    message: "购物车数据格式错误",
+    result: "",
+  },
+  addrFormatError: {
+    code: "10401",
+    message: "地址数据格式错误",
+    result: "",
+  },
+  orderFormatError: {
+    code: "10501",
+    message: "订单数据格式错误",
+    result: "",
+  },
 };
