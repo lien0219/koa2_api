@@ -3,7 +3,10 @@ const path = require("path");
 const {
   fileUploadError,
   unSupportedFileType,
+  publishGoodsError,
 } = require("../constant/err.type");
+
+const { createGoods } = require("../service/goods.service");
 
 class GoodsController {
   async upload(ctx, next) {
@@ -23,6 +26,22 @@ class GoodsController {
       };
     } else {
       return ctx.app.emit("error", fileUploadError, ctx);
+    }
+  }
+
+  async create(ctx) {
+    try {
+      const { createdAt, updatedAt, ...res } = await createGoods(
+        ctx.request.body
+      );
+      ctx.body = {
+        code: 0,
+        message: "发布商品成功",
+        result: res,
+      };
+    } catch (err) {
+      console.error(err);
+      return ctx.app.emit("error", publishGoodsError, ctx);
     }
   }
 }

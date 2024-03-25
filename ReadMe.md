@@ -662,3 +662,17 @@ router.patch('/', auth, (ctx, next) => {
 修改密码：/users/               请求方式：patch    参数：password":""
 
 图片上传：/goods/upload    请求方式：post
+
+发布商品：/goods           请求方式：post   
+
+参数：{
+
+  "goods_name":"",
+
+  "goods_price":number,
+
+  "goods_num":number,
+
+  "goods_img":""
+
+}
