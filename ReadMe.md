@@ -667,12 +667,26 @@ router.patch('/', auth, (ctx, next) => {
 
 参数：{
 
-  "goods_name":"",
+  "goods_name":string,
 
   "goods_price":number,
 
   "goods_num":number,
 
-  "goods_img":""
+  "goods_img":string
+
+}
+
+
+
+修改商品：/goods/{id}  请求方式：put     参数：商品id  + {
+
+  "goods_name":string,
+
+  "goods_price":number,
+
+  "goods_num":number,
+
+  "goods_img":string
 
 }
