@@ -690,3 +690,11 @@ router.patch('/', auth, (ctx, next) => {
   "goods_img":string
 
 }
+
+删除商品（硬删除）：/goods/{id}    请求方式：delete    参数：商品id  （弃用）
+
+
+
+商品下架：/goods/{id}/off     请求方式：post       参数：商品id
+
+商品上架：/goods/{id}/on     请求方式：post       参数：商品id
