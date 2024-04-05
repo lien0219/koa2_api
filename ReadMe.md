@@ -755,3 +755,14 @@ selected:boolean（选中状态）
 
 获取地址列表：/address          请求方式：get        参数：无
 
+
+
+修改地址:/address/{{id}}          请求方式：put       参数：id + {
+
+  "consignee": "修改地址",
+
+  "phone": "11222222336",
+
+  "address": "测试测试"
+
+}
