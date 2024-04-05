@@ -653,6 +653,10 @@ router.patch('/', auth, (ctx, next) => {
 
 # 接口地址：
 
+![image-20240405214524589](C:\Users\李恩\AppData\Roaming\Typora\typora-user-images\image-20240405214524589.png)
+
+![image-20240405214543858](C:\Users\李恩\AppData\Roaming\Typora\typora-user-images\image-20240405214543858.png)
+
  http://localhost:8000
 
 用户注册：/users/register    请求方式：post    参数："user_name":"" , "password":""
