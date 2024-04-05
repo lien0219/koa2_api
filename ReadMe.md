@@ -766,3 +766,13 @@ selected:boolean（选中状态）
   "address": "测试测试"
 
 }
+
+
+
+删除地址：/address/{{id}}        请求方式：delete     参数：id（地址id）
+
+
+
+设置默认地址：/address/{{id}}          请求方式：patch     参数：id（地址id）
+
+ 
