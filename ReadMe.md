@@ -791,3 +791,10 @@ selected:boolean（选中状态）
 
 获取订单列表：/orders             请求方式：get                    参数：无
 
+
+
+修改订单状态：/orders/{{id}}            请求方式：patch           参数：id（订单id）  +  {
+
+  "status":number
+
+}
