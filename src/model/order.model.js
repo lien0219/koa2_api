@@ -35,6 +35,6 @@ const Order = seq.define("zd_orders", {
   },
 });
 
-Order.sync({ force: true });
+// Order.sync({ force: true });
 
 module.exports = Order;
