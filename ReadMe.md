@@ -750,3 +750,8 @@ selected:boolean（选中状态）
   "is_default":,(非必传，是否为默认地址)
 
 }
+
+
+
+获取地址列表：/address          请求方式：get        参数：无
+
