@@ -736,3 +736,17 @@ selected:boolean（选中状态）
 全选：/carts/selectAll    请求方式：post     参数：无
 
 全不选：/carts/unselectAll      请求方式：post     参数：无
+
+
+
+添加地址：/address              请求方式：post       参数：{
+
+  "consignee": string,    （姓名）
+
+  "phone": string,    
+
+  "address":string,
+
+  "is_default":,(非必传，是否为默认地址)
+
+}
