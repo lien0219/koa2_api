@@ -698,3 +698,5 @@ router.patch('/', auth, (ctx, next) => {
 商品下架：/goods/{id}/off     请求方式：post       参数：商品id
 
 商品上架：/goods/{id}/on     请求方式：post       参数：商品id
+
+获取商品列表：/goods?pageNum=1&pageSize=10  请求方式：get   参数：pageNum,pageSize
