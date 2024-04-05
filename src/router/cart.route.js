@@ -10,6 +10,8 @@ const {
   findAll,
   update,
   remove,
+  selectAll,
+  unselectAll,
 } = require("../controller/cart.controller");
 
 const router = new Router({ prefix: "/carts" });
@@ -40,5 +42,9 @@ router.delete(
   }),
   remove
 );
+
+// 全选 && 全不选
+router.post("/selectAll", auth, selectAll);
+router.post("/unselectAll", auth, unselectAll);
 
 module.exports = router;

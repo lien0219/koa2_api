@@ -719,7 +719,7 @@ router.patch('/', auth, (ctx, next) => {
 
 number:number, 
 
-selected:boolean
+selected:boolean（选中状态）
 
 }
 
@@ -730,3 +730,9 @@ selected:boolean
   "ids":[1,2]，（支持多个单个删除）
 
 }
+
+全选&&全不选
+
+全选：/carts/selectAll    请求方式：post     参数：无
+
+全不选：/carts/unselectAll      请求方式：post     参数：无
