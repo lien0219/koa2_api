@@ -5,7 +5,12 @@ const { auth } = require("../middleware/auth.middleware");
 const { validator } = require("../middleware/cart.middleware");
 
 // 控制器
-const { add, findAll, update } = require("../controller/cart.controller");
+const {
+  add,
+  findAll,
+  update,
+  remove,
+} = require("../controller/cart.controller");
 
 const router = new Router({ prefix: "/carts" });
 
@@ -24,6 +29,16 @@ router.patch(
     selected: { type: "bool", required: false },
   }),
   update
+);
+
+// 删除
+router.delete(
+  "/",
+  auth,
+  validator({
+    ids: "array",
+  }),
+  remove
 );
 
 module.exports = router;

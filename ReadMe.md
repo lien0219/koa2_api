@@ -715,12 +715,18 @@ router.patch('/', auth, (ctx, next) => {
 
 
 
-
-
 更新购物车:/carts/{{id}}       请求方式：patch     参数：id     +（两者其一必传：number    or  selected） {
 
 number:number, 
 
 selected:boolean
+
+}
+
+
+
+删除购物车：/carts       请求方式:delete           参数：{
+
+  "ids":[1,2]，（支持多个单个删除）
 
 }
