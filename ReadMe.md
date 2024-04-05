@@ -776,3 +776,16 @@ selected:boolean（选中状态）
 设置默认地址：/address/{{id}}          请求方式：patch     参数：id（地址id）
 
  
+
+提交订单：/orders                            请求方式：post         参数：{
+
+  "address_id":1,
+
+  "goods_info":"[{},{},{}]",
+
+  "total":"199.99"
+
+}
+
+
+
