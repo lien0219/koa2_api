@@ -713,3 +713,14 @@ router.patch('/', auth, (ctx, next) => {
 
 获取购物车列表：/carts       请求方式：get        参数：pageNum,pageSize（非必填）
 
+
+
+
+
+更新购物车:/carts/{{id}}       请求方式：patch     参数：id     +（两者其一必传：number    or  selected） {
+
+number:number, 
+
+selected:boolean
+
+}
